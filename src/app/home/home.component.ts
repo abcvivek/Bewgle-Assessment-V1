@@ -9,5 +9,3 @@ import RestaurantsData from '../../Restaurants.json';
 export class HomeComponent {
   Restaurants = RestaurantsData;
 }
-
-console.log(RestaurantsData);
