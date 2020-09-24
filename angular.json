@@ -24,9 +24,14 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": 
+            [
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -119,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "bewgle-assessment-angular"
+    }
+  },
+  "defaultProject": "bewgle-assessment-angular",
+  "cli": {
+    "analytics": "ecddf361-8bc1-42c5-9448-bed37782d132"
+  }
 }

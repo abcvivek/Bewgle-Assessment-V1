@@ -1,0 +1,40 @@
+
+#Restaurant-Card
+{
+    width: 20rem;
+    margin: 20px auto;
+    height: 25rem;
+}
+
+.card-title {
+    color : rgb(255, 204, 0);
+}
+
+.card-title:hover {
+    color: white;   
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.card-body
+{
+    color: white;
+    z-index: 1;
+}
+
+.card-img-overlay
+{
+    background: linear-gradient(to top,rgb(0,0,0,1) 40%,rgb(0,0,0,0) 70%);
+}
+
+
+@media (min-width: 576px) 
+{
+    #Restaurant-Card
+    {
+        margin: 20px;
+    }
+    
+}

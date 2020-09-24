@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="card-deck text-center justify-content-center">
+      <div *ngFor="let Restaurant of Restaurants;index as RestaurantId">
+        <div class="card" id="Restaurant-Card">
+          <img src="{{ Restaurant.coverimage}}" class="card-img-top" alt="{{ Restaurant.name }}" width="15rem" height="250rem">
+          <div class="card-img-overlay">
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-8 text-left">
+                <a [routerLink]="['/Restaurants',RestaurantId,Restaurant.name]" ><h4 class="card-title"><strong>{{ Restaurant.name }}</strong></h4></a>
+                <p class="card-text">{{ Restaurant.area }}, {{ Restaurant.city }}</p>
+              </div>
+              <div class="col-4">
+                <h4 class="card-title">{{ Restaurant.review_rating["avg-rating"]}}</h4>
+              </div>
+            </div>     
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

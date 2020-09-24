@@ -1,0 +1,66 @@
+<div *ngIf="Restaurant">
+    <div class="container-fluid">
+        <div class="row mt-3">
+           <div class="col-md-8">
+                <div class="ImageOverlay"></div>
+                <img class="Image" src="{{ Restaurant.coverimage }}" alt="CoverImage"/> 
+                <div class="Centered">
+                    <h1 class="Name"><strong>{{ Restaurant.name }}</strong></h1>
+                    <h3 class="AreaCity">{{ Restaurant.area }}, {{ Restaurant.city }}</h3>
+                    <span class="RatingText">{{ Restaurant.review_rating["avg-rating"].toFixed(1) }}
+                        <i class="fas fa-star" *ngFor="let in of counter()"></i>
+                    </span>           
+                </div>  
+           </div>
+           <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-12" >
+                        <h6 style="margin-top: 20px;"><strong>Tags </strong> <i class="fas fa-tags"></i></h6>
+                        <button *ngFor = "let i of Restaurant.category" class="Tags">{{i}}</button>
+                    </div>
+                    
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p><strong>Feature Ratings </strong> <i class="fas fa-star"></i></p>
+                        <div *ngFor="let i of Restaurant.feature_rating | keyvalue" class="FeatureRatings">
+                            <div class="Circle">
+                                <p>{{ i.value }}</p>
+                            </div>
+                            <p class="Heading"> <strong> {{ i.key }} </strong> </p>
+                        </div>
+                    </div>
+                </div>
+           </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-5 text-justify">
+                <p class="DescriptionHeading">Description</p>
+                <p class="DescriptionText">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            </div>
+            <div class="col-md-4 text-justify">
+                <p class="RatingHeading">User Rating &nbsp;&nbsp;  <i class="fas fa-star" *ngFor="let in of counter()"></i></p>
+                <div class="row mt-2" *ngFor="let i of Restaurant.review_rating['votes'] | keyvalue">
+                    <div class="col-4">
+                        <i class="fas fa-star" *ngFor="let i of [].constructor(i.value.rating)"></i>
+                    </div>
+                    <div class="col-5">
+                        <div class="Bar" [style.width.px]="i.value.votes/Restaurant.review_rating['total']*100*2" ></div>
+                    </div>
+                    <div class="col-3">
+                        <p><strong>{{ i.value.votes }}</strong></p>
+                    </div>
+                </div>            
+            </div>
+            <div class="col-md-3 Experience" *ngIf="!RatingReceived">
+                <span class="RatingInputHeading">Tell us your experience</span>
+                <star-rating value="0" [totalstars]="5" checkedcolor="rgb(255, 204, 0)" uncheckedcolor="black" size="40px" readonly="false" (rate)="onRate($event)"></star-rating>
+            </div>
+            <div class="col-md-3" *ngIf="RatingReceived" >
+                <p class="Status">Thanks for your Response!!</p>
+            </div>
+        </div>
+       
+    </div>
+</div>
